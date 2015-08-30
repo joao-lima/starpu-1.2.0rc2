@@ -1,0 +1,27 @@
+var group__API__Data__Interfaces_structstarpu__data__copy__methods =
+[
+    [ "can_copy", "group__API__Data__Interfaces.html#a0b7f49db0750de6d12b12cde2273908b", null ],
+    [ "ram_to_ram", "group__API__Data__Interfaces.html#ac15d27ccf8cdb229d5f232db91301adf", null ],
+    [ "ram_to_cuda", "group__API__Data__Interfaces.html#a9dd59b67662ec9b3da55db98e3853cda", null ],
+    [ "ram_to_opencl", "group__API__Data__Interfaces.html#a9733f2db0e65e2b057cd0a5840ea7950", null ],
+    [ "ram_to_mic", "group__API__Data__Interfaces.html#af2e7b1664ea162473cfdbcf2ab5ec5bf", null ],
+    [ "cuda_to_ram", "group__API__Data__Interfaces.html#aeb8e6efbdfbf678de94a7e074e2dda6a", null ],
+    [ "cuda_to_cuda", "group__API__Data__Interfaces.html#ada081be63659dbac8f49050cfee4a8bd", null ],
+    [ "cuda_to_opencl", "group__API__Data__Interfaces.html#ab4f7966f783722b9b335b7f4649db435", null ],
+    [ "opencl_to_ram", "group__API__Data__Interfaces.html#ab662f64e9032d2e3e8c3066dccd1684e", null ],
+    [ "opencl_to_cuda", "group__API__Data__Interfaces.html#a85916be52c73ecc7b2116a397e50d05f", null ],
+    [ "opencl_to_opencl", "group__API__Data__Interfaces.html#a39acf95bf062cdae5b1e57e851db88de", null ],
+    [ "mic_to_ram", "group__API__Data__Interfaces.html#a927710b6c2d099dbe36145ba87df86d1", null ],
+    [ "scc_src_to_sink", "group__API__Data__Interfaces.html#a84146443d094c81cdc7cac52b28f5114", null ],
+    [ "scc_sink_to_src", "group__API__Data__Interfaces.html#a8b9f37c7fe837334f66ce327a87b89f1", null ],
+    [ "scc_sink_to_sink", "group__API__Data__Interfaces.html#aa1025d14aed49b801917a6fa2e60c390", null ],
+    [ "ram_to_cuda_async", "group__API__Data__Interfaces.html#a95f800e916adcbfc1aaa36ce9bf1b490", null ],
+    [ "cuda_to_ram_async", "group__API__Data__Interfaces.html#aded4f7a86082a5bf2dbcb8947fa58345", null ],
+    [ "cuda_to_cuda_async", "group__API__Data__Interfaces.html#a00ebf589b7263e0043303c3ecfeb9fa4", null ],
+    [ "ram_to_opencl_async", "group__API__Data__Interfaces.html#a845b9ecc783192f7d2efb3c1485f3fb1", null ],
+    [ "opencl_to_ram_async", "group__API__Data__Interfaces.html#a125f9eb59cf59baf4271316d2e445095", null ],
+    [ "opencl_to_opencl_async", "group__API__Data__Interfaces.html#ab2bb0678d85ab51345078e581648f17c", null ],
+    [ "ram_to_mic_async", "group__API__Data__Interfaces.html#a7d9d144962d2fa3e92d8426e43bdb350", null ],
+    [ "mic_to_ram_async", "group__API__Data__Interfaces.html#ae5d37ff9f9780d19eae172b0256181ab", null ],
+    [ "any_to_any", "group__API__Data__Interfaces.html#a85548570581df8ee7f1fe24ebf3c7b9b", null ]
+];

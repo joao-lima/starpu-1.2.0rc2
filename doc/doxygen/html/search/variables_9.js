@@ -1,0 +1,23 @@
+var searchData=
+[
+  ['id',['id',['../group__API__Data__Interfaces.html#aaff7aa638a24957eb76c5c40f96cddbe',1,'starpu_matrix_interface::id()'],['../group__API__Data__Interfaces.html#a5bf21cb9a0c92c55915427fb2b4cc220',1,'starpu_coo_interface::id()'],['../group__API__Data__Interfaces.html#ae2a9b938ace8afeb6de759dadb7181a5',1,'starpu_block_interface::id()'],['../group__API__Data__Interfaces.html#abf4cecec3e8bcec447ec51416b8ac3d2',1,'starpu_vector_interface::id()'],['../group__API__Data__Interfaces.html#a08694d4a3eba6826b7547d3bd1322702',1,'starpu_variable_interface::id()'],['../group__API__Data__Interfaces.html#a8fca87a97f1f7d086377f4c40aec3f29',1,'starpu_csr_interface::id()'],['../group__API__Data__Interfaces.html#aeaaaed6dbef4bfc013c133654c1825fc',1,'starpu_bcsr_interface::id()'],['../group__API__Initialization__and__Termination.html#aa29a395ef3d7f4c9f060fc2a5db73c60',1,'starpu_driver::id()'],['../group__API__StarPUTop__Interface.html#ab08004f1be73431d392b876eb9e00a90',1,'starpu_top_data::id()'],['../group__API__StarPUTop__Interface.html#a2dd63e94fdeb6e6929d1c676cb0dd74c',1,'starpu_top_param::id()'],['../group__API__Tree.html#ac97819c01fbab8fa16b3a8e9b9ee84e0',1,'starpu_tree::id()']]],
+  ['idle_5fpower',['idle_power',['../group__API__Modularized__Scheduler.html#aa8044e4496b591ffb05a2529c21223a8',1,'starpu_sched_component_mct_data']]],
+  ['idle_5fstart_5ftime',['idle_start_time',['../group__API__SC__Hypervisor.html#a15b7572ea77ba649646ea7a2e618c708',1,'sc_hypervisor_wrapper']]],
+  ['idle_5ftime',['idle_time',['../group__API__SC__Hypervisor.html#a8ddc223936bf073c6de110cf4cb9fcb3',1,'sc_hypervisor_wrapper']]],
+  ['if_5fclause',['if_clause',['../group__API__OpenMP__Runtime__Support.html#aecf5779017beb31e13424202f9dc013b',1,'starpu_omp_parallel_region_attr::if_clause()'],['../group__API__OpenMP__Runtime__Support.html#afa30d3c752ab9665112df925a39cb4ab',1,'starpu_omp_task_region_attr::if_clause()']]],
+  ['init',['init',['../group__API__Workers__Properties.html#a5e9789880d5e494b6da0e0b4eaa1b3df',1,'starpu_worker_collection']]],
+  ['init_5fiterator',['init_iterator',['../group__API__Workers__Properties.html#a9c2191d4c76b3dafe860dfc887386764',1,'starpu_worker_collection']]],
+  ['init_5fsched',['init_sched',['../group__API__Scheduling__Policy.html#a58f189e5addbfef1c29cc2cc0d9c42c2',1,'starpu_sched_policy']]],
+  ['int_5fmax_5fvalue',['int_max_value',['../group__API__StarPUTop__Interface.html#a51ff532ad5bf1b9de6e3981157246b9f',1,'starpu_top_data::int_max_value()'],['../group__API__StarPUTop__Interface.html#a05647b004b28e46a97461d9423ced955',1,'starpu_top_param::int_max_value()']]],
+  ['int_5fmin_5fvalue',['int_min_value',['../group__API__StarPUTop__Interface.html#a3243c1dc916476f113414cc03f73f67c',1,'starpu_top_data::int_min_value()'],['../group__API__StarPUTop__Interface.html#a1d1c10d39d758d0902988e7e4d7fc4c4',1,'starpu_top_param::int_min_value()']]],
+  ['interface_5fsize',['interface_size',['../group__API__Data__Interfaces.html#a8c4ce623e92d8fd3d87e0ab841ae6038',1,'starpu_data_interface_ops']]],
+  ['interfaceid',['interfaceid',['../group__API__Data__Interfaces.html#a755b7d337f0ac2bdf8752bba1039e1b4',1,'starpu_data_interface_ops']]],
+  ['interfaces',['interfaces',['../group__API__Codelet__And__Tasks.html#a08159d40a2d691042239d59abdac738f',1,'starpu_task']]],
+  ['internal',['internal',['../group__API__OpenMP__Runtime__Support.html#a95ee21c4ac86e49158c8ea32084f7231',1,'starpu_omp_lock_t::internal()'],['../group__API__OpenMP__Runtime__Support.html#a7ab2535d19a318b9981c45468ea25c0f',1,'starpu_omp_nest_lock_t::internal()']]],
+  ['is_5finit',['is_init',['../group__API__Performance__Model.html#add502ebee1bcb74c0453fac74b7b0f9e',1,'starpu_perfmodel']]],
+  ['is_5floaded',['is_loaded',['../group__API__Performance__Model.html#ae37737aa0b7abc5f5813bf61814d996f',1,'starpu_perfmodel']]],
+  ['is_5fmultiformat',['is_multiformat',['../group__API__Data__Interfaces.html#ae56f2716fc0a28af725cd6e4148a6844',1,'starpu_data_interface_ops']]],
+  ['is_5fpu',['is_pu',['../group__API__Tree.html#a084ffa4ca156bc6069793eb8c4007375',1,'starpu_tree']]],
+  ['ispeed_5fctx_5fsample',['ispeed_ctx_sample',['../group__API__SC__Hypervisor.html#a111f937e2d3126fe9fef849ac6796147',1,'sc_hypervisor_policy_config']]],
+  ['ispeed_5fw_5fsample',['ispeed_w_sample',['../group__API__SC__Hypervisor.html#acacb7cb4b04509ac0f912f1cf65661d4',1,'sc_hypervisor_policy_config']]]
+];

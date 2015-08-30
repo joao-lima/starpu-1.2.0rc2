@@ -1,0 +1,105 @@
+#!/bin/bash
+
+# StarPU --- Runtime system for heterogeneous multicore architectures.
+# 
+# Copyright (C) 2014  Université Joseph Fourier
+# Copyright (C) 2014-2015  Université Bordeaux
+# 
+# StarPU is free software; you can redistribute it and/or modify
+# it under the terms of the GNU Lesser General Public License as published by
+# the Free Software Foundation; either version 2.1 of the License, or (at
+# your option) any later version.
+# 
+# StarPU is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# 
+# See the GNU Lesser General Public License in COPYING.LGPL for more details.
+
+# Script for sorting paje traces
+
+set -e # fail fast
+
+# File names
+basename="$PWD"
+
+inputfiles=""
+
+help_script()
+{
+cat << EOF
+Give statistical analysis of the paje trace
+
+$0 [ options ] paje.trace [paje.trace2 ...]
+
+Options:
+   -h      Show this message
+
+Examples:
+
+$0 example.trace
+
+Report bugs to <@PACKAGE_BUGREPORT@>
+EOF
+}
+
+if [ "$1" = "--version" ] ; then
+    echo "$PROGNAME (@PACKAGE_NAME@) @PACKAGE_VERSION@"
+    exit 0
+fi
+
+if [ "$1" = "-h" ] || [ "$1" = "--help" ] || [ "$1" = "" ] ; then
+    help_script
+    exit 0
+fi
+
+while getopts "h" opt; do
+  case $opt in
+     h)
+      help_script
+      exit 4
+      ;;
+    \?)
+      echo "Invalid option: -$OPTARG"
+      help_script
+      exit 3
+      ;;
+  esac
+done
+
+# Reading files that need to be analyzed
+shift $((OPTIND - 1))
+inputfiles=$@
+if [[ $# < 1 ]]; then
+    echo "Error!"
+    help_script
+    exit 2
+fi
+
+#####################################
+# Transforming input files into .csv
+for file in $inputfiles; do
+    if [ ! -s $file ]
+	then
+	echo "Error: file $file does not exist!"
+	exit 5
+    fi
+# Sorting traces
+    grep -e '^\(\(%\)\|\(\(0\|1\|2\|3\|4\|5\|6\|7\)\>\)\)' $file > start.trace
+    grep -e '^\(\(%\)\|\(\(0\|1\|2\|3\|4\|5\|6\|7\)\>\)\)' -v $file > end.trace
+    sort -s -V --key=2,2 end.trace > endSorted.trace
+    if grep -q start_profiling endSorted.trace
+    then
+	echo Using start_profiling/stop_profiling trace selection.
+	sed -ne '/start_profiling/,/stop_profiling/p' < endSorted.trace > endSorted2.trace
+    else
+	cp endSorted.trace endSorted2.trace
+    fi
+    cat start.trace endSorted2.trace > $file
+done
+
+# Cleanup: delete temporary files
+rm -f start.trace
+rm -f end.trace
+rm -f endSorted.trace
+rm -f endSorted2.trace

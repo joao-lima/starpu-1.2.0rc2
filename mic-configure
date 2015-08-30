@@ -1,0 +1,157 @@
+#!/bin/bash
+
+ROOT_DIR=$(dirname $0)
+
+cat > ./mic-config.log << EOF
+This file was created by StarPU mic-configure
+
+ $ $0 $*
+EOF
+
+prefix="/usr/local"
+coi_dir="/opt/intel/mic/coi"
+scif_dir="/opt/intel/mic/scif"
+mic_host="x86_64-k1om-linux"
+native_mic=0
+for arg in $*
+do
+	case $arg in
+		--prefix=*)
+			prefix="${arg#--prefix=}"
+			;;
+		--with-coi-dir=*)
+			coi_dir="${arg#--with-coi-dir=}"
+			;;
+		--with-scif-dir=*)
+			scif_dir="${arg#--with-scif-dir=}"
+			;;
+		--mic-host=*)
+			mic_host="${arg#--mic-host=}"
+			;;
+	        --enable-native-mic)
+		        native_mic=1
+		        ;;
+	esac
+done
+
+# Test gcc compiler
+x=$(type -t ${mic_host}-gcc)
+if [ -z "$x" ]
+then
+    # Test icc compiler
+    echo "int main(int argc, char **argv) { return 0; }" > /tmp/icc_$USER_$$.c
+    icc -mmic /tmp/icc_$USER_$$.c > /dev/null 2>/tmp/icc_$USER_$$.err
+    l=$(grep -c "invalid argument" /tmp/icc_$USER_$$.err)
+    if [ "$l" != "0" ]
+    then
+        echo "[error] no compiler found. please add path to either ${mic_host}-gcc or to an enabled mic icc compiler in your PATH"
+	exit 1
+    else
+	compiler="icc"
+    fi
+else
+    compiler="gcc"
+fi
+
+dev_list="host mic"
+if [ "$native_mic" -eq "1" ]
+then
+    dev_list="mic"
+fi
+
+for arch in $dev_list #host mic
+do
+	# We call the configure script from a build directory further in the
+	# arborescence
+
+	case $ROOT_DIR in
+		/*) command="${ROOT_DIR}/configure";;
+		*) command="../${ROOT_DIR}/configure";;
+	esac
+
+	if [ $compiler = "icc" -a "$arch" = "mic" ] ; then
+	    export CC="icc -mmic"
+	    export CXX="icc -mmic"
+	fi
+
+	params="--enable-mic --with-coi-dir=$coi_dir --with-scif-dir=$scif_dir --prefix=$prefix/$arch"
+
+	if test x$arch = xmic ; then
+	    if [ "$native_mic" -eq "1" ]
+	    then
+		params="$params --disable-build-doc --with-coi-lib-dir=$coi_dir/device-linux-release/lib --with-scif-lib-dir=$scif_dir/device-linux-release/lib --host=$mic_host --enable-maxcpus=250"
+	    else
+		# TODO: fix hwloc detection to look for another pkg-config place, and not just believe in the host version of hwloc.pc...
+		params="$params --disable-build-doc -without-hwloc --with-coi-lib-dir=$coi_dir/device-linux-release/lib --with-scif-lib-dir=$scif_dir/device-linux-release/lib --host=$mic_host"
+	    fi
+	else
+		params="$params --with-coi-lib-dir=$coi_dir/host-linux-release/lib --with-scif-lib-dir=$scif_dir/host-linux-release/lib"
+	fi
+
+	# If the build directory doesn't exist yet, create it
+	if [ ! -d "build_${arch}" ] ; then
+		mkdir "build_${arch}"
+	fi
+
+	cd "build_${arch}"
+
+	if test x$arch = xmic ; then
+		LDFLAGS=-export-dynamic $command $* $params
+	else
+		$command $* $params
+	fi
+	if [ "$?" != 0 ]
+	then
+		exit $?
+	fi
+	cd ..
+done
+if [ "$native_mic" -eq "1" ]
+then
+cat > Makefile << EOF
+all:
+	\$(MAKE) -C build_mic
+
+clean:
+	\$(MAKE) -C build_mic clean
+
+distclean: clean
+	rm -f Makefile
+
+check:
+	\$(MAKE) -C build_mic check
+
+showcheck:
+	\$(MAKE) -C build_mic showcheck
+
+install:
+	\$(MAKE) -C build_mic install
+	ln -sf "${prefix}/mic/lib/pkgconfig/starpu-1.2.pc" "${prefix}/mic/lib/pkgconfig/starpu-1.2-mic.pc"
+EOF
+else
+cat > Makefile << EOF
+all:
+	\$(MAKE) -C build_host
+	\$(MAKE) -C build_mic
+
+clean:
+	\$(MAKE) -C build_host clean
+	\$(MAKE) -C build_mic clean
+
+distclean: clean
+	rm -f Makefile
+
+check:
+	\$(MAKE) -C build_host check
+	\$(MAKE) -C build_mic check
+
+showcheck:
+	\$(MAKE) -C build_host showcheck
+	\$(MAKE) -C build_mic showcheck
+
+install:
+	\$(MAKE) -C build_host install
+	\$(MAKE) -C build_mic install
+	ln -sf "${prefix}/mic/lib/pkgconfig/starpu-1.2.pc" "${prefix}/mic/lib/pkgconfig/starpu-1.2-mic.pc"
+EOF
+fi

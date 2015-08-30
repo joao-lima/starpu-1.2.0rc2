@@ -1,0 +1,616 @@
+/* src/common/config.h.in.  Generated from configure.ac by autoheader.  */
+
+/* enable FUT traces */
+#undef CONFIG_FUT
+
+/* Define to 1 if you have the <aio.h> header file. */
+#undef HAVE_AIO_H
+
+/* Define to 1 when `struct attribute_spec' has the `affects_type_identity'
+   field. */
+#undef HAVE_ATTRIBUTE_SPEC_AFFECTS_TYPE_IDENTITY
+
+/* Define to 1 if you have the <Ayudame.h> header file. */
+#undef HAVE_AYUDAME_H
+
+/* Define to 1 if you have the `clEnqueueMarkerWithWaitList' function. */
+#undef HAVE_CLENQUEUEMARKERWITHWAITLIST
+
+/* Define to 1 if you have the `clGetExtensionFunctionAddressForPlatform'
+   function. */
+#undef HAVE_CLGETEXTENSIONFUNCTIONADDRESSFORPLATFORM
+
+/* Define to 1 if you have the `clock_gettime' function. */
+#undef HAVE_CLOCK_GETTIME
+
+/* Define to 1 if you have the <CL/cl_ext.h> header file. */
+#undef HAVE_CL_CL_EXT_H
+
+/* Define to 1 if you have the <cuda_gl_interop.h> header file. */
+#undef HAVE_CUDA_GL_INTEROP_H
+
+/* Peer transfers are supported in CUDA */
+#undef HAVE_CUDA_MEMCPY_PEER
+
+/* Define to 1 if you have the <c-common.h> header file. */
+#undef HAVE_C_COMMON_H
+
+/* Define to 1 if you have the <c-family/c-common.h> header file. */
+#undef HAVE_C_FAMILY_C_COMMON_H
+
+/* Define to 1 if you have the <c-family/c-pragma.h> header file. */
+#undef HAVE_C_FAMILY_C_PRAGMA_H
+
+/* Define to 1 if you have the <c-pragma.h> header file. */
+#undef HAVE_C_PRAGMA_H
+
+/* Define to 1 if you have the declaration of `build_array_ref', and to 0 if
+   you don't. */
+#undef HAVE_DECL_BUILD_ARRAY_REF
+
+/* Define to 1 if you have the declaration of `build_call_expr_loc_array', and
+   to 0 if you don't. */
+#undef HAVE_DECL_BUILD_CALL_EXPR_LOC_ARRAY
+
+/* Define to 1 if you have the declaration of `build_call_expr_loc_vec', and
+   to 0 if you don't. */
+#undef HAVE_DECL_BUILD_CALL_EXPR_LOC_VEC
+
+/* Define to 1 if you have the declaration of `build_zero_cst', and to 0 if
+   you don't. */
+#undef HAVE_DECL_BUILD_ZERO_CST
+
+/* Define to 1 if you have the declaration of `builtin_decl_explicit', and to
+   0 if you don't. */
+#undef HAVE_DECL_BUILTIN_DECL_EXPLICIT
+
+/* Define to 1 if you have the declaration of `enable_fut_flush', and to 0 if
+   you don't. */
+#undef HAVE_DECL_ENABLE_FUT_FLUSH
+
+/* Define to 1 if you have the declaration of `fut_set_filename', and to 0 if
+   you don't. */
+#undef HAVE_DECL_FUT_SET_FILENAME
+
+/* Define to 1 if you have the declaration of
+   `hwloc_cuda_get_device_osdev_by_index', and to 0 if you don't. */
+#undef HAVE_DECL_HWLOC_CUDA_GET_DEVICE_OSDEV_BY_INDEX
+
+/* Define to 1 if you have the declaration of `ptr_derefs_may_alias_p', and to
+   0 if you don't. */
+#undef HAVE_DECL_PTR_DEREFS_MAY_ALIAS_P
+
+/* Define to 1 if you have the <dlfcn.h> header file. */
+#undef HAVE_DLFCN_H
+
+/* Define to 1 if you have the `enable_fut_flush' function. */
+#undef HAVE_ENABLE_FUT_FLUSH
+
+/* Define to 1 if you have the `fut_set_filename' function. */
+#undef HAVE_FUT_SET_FILENAME
+
+/* Define to 1 if you have the <glpk.h> header file. */
+#undef HAVE_GLPK_H
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <leveldb/db.h> header file. */
+#undef HAVE_LEVELDB_DB_H
+
+/* Define to 1 if you have the `atlas' library (-latlas). */
+#undef HAVE_LIBATLAS
+
+/* Define to 1 if you have the `cblas' library (-lcblas). */
+#undef HAVE_LIBCBLAS
+
+/* Define to 1 if you have the `gfortran' library (-lgfortran). */
+#undef HAVE_LIBGFORTRAN
+
+/* Define to 1 if you have the `GL' library (-lGL). */
+#undef HAVE_LIBGL
+
+/* Define to 1 if you have the `glpk' library (-lglpk). */
+#undef HAVE_LIBGLPK
+
+/* Define to 1 if you have the `GLU' library (-lGLU). */
+#undef HAVE_LIBGLU
+
+/* Define to 1 if you have the `glut' library (-lglut). */
+#undef HAVE_LIBGLUT
+
+/* Define to 1 if you have the `goto' library (-lgoto). */
+#undef HAVE_LIBGOTO
+
+/* Define to 1 if you have the `goto2' library (-lgoto2). */
+#undef HAVE_LIBGOTO2
+
+/* Define to 1 if you have the `ifcore' library (-lifcore). */
+#undef HAVE_LIBIFCORE
+
+/* Define to 1 if you have the `leveldb' library (-lleveldb). */
+#undef HAVE_LIBLEVELDB
+
+/* Define to 1 if you have the `pthread' library (-lpthread). */
+#undef HAVE_LIBPTHREAD
+
+/* Define to 1 if you have the `RCCE_bigflags_nongory_nopwrmgmt' library
+   (-lRCCE_bigflags_nongory_nopwrmgmt). */
+#undef HAVE_LIBRCCE_BIGFLAGS_NONGORY_NOPWRMGMT
+
+/* Define to 1 if you have the `rt' library (-lrt). */
+#undef HAVE_LIBRT
+
+/* Define to 1 if you have the `simgrid' library (-lsimgrid). */
+#undef HAVE_LIBSIMGRID
+
+/* Define to 1 if you have the `ws2_32' library (-lws2_32). */
+#undef HAVE_LIBWS2_32
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#undef HAVE_MALLOC_H
+
+/* Define to 1 if you have the `memalign' function. */
+#undef HAVE_MEMALIGN
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `mkstemps' function. */
+#undef HAVE_MKSTEMPS
+
+/* Define to 1 if you have the `MSG_environment_get_routing_root' function. */
+#undef HAVE_MSG_ENVIRONMENT_GET_ROUTING_ROOT
+
+/* Define to 1 if you have the `MSG_get_as_by_name' function. */
+#undef HAVE_MSG_GET_AS_BY_NAME
+
+/* Define to 1 if you have the `MSG_process_join' function. */
+#undef HAVE_MSG_PROCESS_JOIN
+
+/* Define to 1 if you have the `posix_memalign' function. */
+#undef HAVE_POSIX_MEMALIGN
+
+/* Define to 1 if you have the `pread' function. */
+#undef HAVE_PREAD
+
+/* Define to 1 if you have the `pthread_setaffinity_np' function. */
+#undef HAVE_PTHREAD_SETAFFINITY_NP
+
+/* pthread_spin_lock is available */
+#undef HAVE_PTHREAD_SPIN_LOCK
+
+/* Define to 1 if you have the `pwrite' function. */
+#undef HAVE_PWRITE
+
+/* Define to 1 if you have the <simgrid/msg.h> header file. */
+#undef HAVE_SIMGRID_MSG_H
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `sysconf' function. */
+#undef HAVE_SYSCONF
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to 1 if you have the <valgrind/helgrind.h> header file. */
+#undef HAVE_VALGRIND_HELGRIND_H
+
+/* Define to 1 if you have the <valgrind/memcheck.h> header file. */
+#undef HAVE_VALGRIND_MEMCHECK_H
+
+/* Define to 1 if you have the <valgrind/valgrind.h> header file. */
+#undef HAVE_VALGRIND_VALGRIND_H
+
+/* Define to 1 if you have the `xbt_barrier_init' function. */
+#undef HAVE_XBT_BARRIER_INIT
+
+/* Define to 1 if you have the `xbt_mutex_try_acquire' function. */
+#undef HAVE_XBT_MUTEX_TRY_ACQUIRE
+
+/* Define to the sub-directory in which libtool stores uninstalled libraries.
+   */
+#undef LT_OBJDIR
+
+/* Name of package */
+#undef PACKAGE
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the home page for this package. */
+#undef PACKAGE_URL
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* The size of `void *', as computed by sizeof. */
+#undef SIZEOF_VOID_P
+
+/* use STARPU_ATLAS library */
+#undef STARPU_ATLAS
+
+/* location of StarPU build directory */
+#undef STARPU_BUILD_DIR
+
+/* enable debugging statements */
+#undef STARPU_DEBUG
+
+/* enable developer warnings */
+#undef STARPU_DEVEL
+
+/* Define to 1 to disable asynchronous copy between CPU and GPU devices */
+#undef STARPU_DISABLE_ASYNCHRONOUS_COPY
+
+/* Define to 1 to disable asynchronous copy between CPU and CUDA devices */
+#undef STARPU_DISABLE_ASYNCHRONOUS_CUDA_COPY
+
+/* Define to 1 to disable asynchronous copy between CPU and MIC devices */
+#undef STARPU_DISABLE_ASYNCHRONOUS_MIC_COPY
+
+/* Define to 1 to disable asynchronous copy between CPU and OpenCL devices */
+#undef STARPU_DISABLE_ASYNCHRONOUS_OPENCL_COPY
+
+/* enable details about codelets in the paje trace */
+#undef STARPU_ENABLE_PAJE_CODELET_DETAILS
+
+/* enable statistics */
+#undef STARPU_ENABLE_STATS
+
+/* display verbose debug messages */
+#undef STARPU_EXTRA_VERBOSE
+
+/* enable additional locking systems FxT traces */
+#undef STARPU_FXT_LOCK_TRACES
+
+/* Path to the GNU debugger. */
+#undef STARPU_GDB_PATH
+
+/* use STARPU_GOTO library */
+#undef STARPU_GOTO
+
+/* Define to 1 if CUDA device properties include BusID */
+#undef STARPU_HAVE_BUSID
+
+/* cufftDoubleComplex is available */
+#undef STARPU_HAVE_CUFFTDOUBLECOMPLEX
+
+/* CURAND is available */
+#undef STARPU_HAVE_CURAND
+
+/* Define to 1 if CUDA device properties include DomainID */
+#undef STARPU_HAVE_DOMAINID
+
+/* Define to 1 if you have the <f77.h> header file. */
+#undef STARPU_HAVE_F77_H
+
+/* Define to 1 if you have the libfftw3 library. */
+#undef STARPU_HAVE_FFTW
+
+/* Define to 1 if you have the libfftw3f library. */
+#undef STARPU_HAVE_FFTWF
+
+/* Define to 1 if you have the libfftw3l library. */
+#undef STARPU_HAVE_FFTWL
+
+/* Define to 1 if you have the <glpk.h> header file. */
+#undef STARPU_HAVE_GLPK_H
+
+/* Define to 1 if you have the <valgrind/helgrind.h> header file. */
+#undef STARPU_HAVE_HELGRIND_H
+
+/* Define to 1 if you have the hwloc library. */
+#undef STARPU_HAVE_HWLOC
+
+/* Define this if icc is available */
+#undef STARPU_HAVE_ICC
+
+/* Define to 1 if you have the <leveldb/db.h> header file. */
+#undef STARPU_HAVE_LEVELDB
+
+/* libnuma is available */
+#undef STARPU_HAVE_LIBNUMA
+
+/* Define to 1 if you have the MAGMA library. */
+#undef STARPU_HAVE_MAGMA
+
+/* Define to 1 if you have the <malloc.h> header file. */
+#undef STARPU_HAVE_MALLOC_H
+
+/* Define to 1 if you have the `memalign' function. */
+#undef STARPU_HAVE_MEMALIGN
+
+/* Define to 1 if you have the <valgrind/memcheck.h> header file. */
+#undef STARPU_HAVE_MEMCHECK_H
+
+/* Define to 1 if the function nearbyintf is available. */
+#undef STARPU_HAVE_NEARBYINTF
+
+/* Define to 1 if you have the `posix_memalign' function. */
+#undef STARPU_HAVE_POSIX_MEMALIGN
+
+/* Define to 1 if you have libpoti */
+#undef STARPU_HAVE_POTI
+
+/* pthread_barrier is available */
+#undef STARPU_HAVE_PTHREAD_BARRIER
+
+/* pthread_spin_lock is available */
+#undef STARPU_HAVE_PTHREAD_SPIN_LOCK
+
+/* Define to 1 if the function rintf is available. */
+#undef STARPU_HAVE_RINTF
+
+/* Define to 1 if the function sched_yield is available. */
+#undef STARPU_HAVE_SCHED_YIELD
+
+/* Define to 1 if the function setenv is available. */
+#undef STARPU_HAVE_SETENV
+
+/* Define to 1 if you have msg.h in simgrid/. */
+#undef STARPU_HAVE_SIMGRID_MSG_H
+
+/* Define to 1 if the function strerro_r is available. */
+#undef STARPU_HAVE_STRERROR_R
+
+/* struct timespec is defined */
+#undef STARPU_HAVE_STRUCT_TIMESPEC
+
+/* Define to 1 if the target supports __sync_bool_compare_and_swap */
+#undef STARPU_HAVE_SYNC_BOOL_COMPARE_AND_SWAP
+
+/* Define to 1 if the target supports __sync_fetch_and_add */
+#undef STARPU_HAVE_SYNC_FETCH_AND_ADD
+
+/* Define to 1 if the target supports __sync_fetch_and_or */
+#undef STARPU_HAVE_SYNC_FETCH_AND_OR
+
+/* Define to 1 if the target supports __sync_lock_test_and_set */
+#undef STARPU_HAVE_SYNC_LOCK_TEST_AND_SET
+
+/* Define to 1 if the target supports __sync_synchronize */
+#undef STARPU_HAVE_SYNC_SYNCHRONIZE
+
+/* Define to 1 if the target supports __sync_val_compare_and_swap */
+#undef STARPU_HAVE_SYNC_VAL_COMPARE_AND_SWAP
+
+/* Define to 1 if the function unsetenv is available. */
+#undef STARPU_HAVE_UNSETENV
+
+/* Define to 1 if you have the <valgrind/valgrind.h> header file. */
+#undef STARPU_HAVE_VALGRIND_H
+
+/* Define this on windows. */
+#undef STARPU_HAVE_WINDOWS
+
+/* enable X11 */
+#undef STARPU_HAVE_X11
+
+/* calibration heuristic value */
+#undef STARPU_HISTORYMAXERROR
+
+/* Define to the directory where StarPU's headers are installed. */
+#undef STARPU_INCLUDE_DIR
+
+/* Define to 1 on Linux */
+#undef STARPU_LINUX_SYS
+
+/* enable long check */
+#undef STARPU_LONG_CHECK
+
+/* Major version number of StarPU. */
+#undef STARPU_MAJOR_VERSION
+
+/* Maximum number of CPUs supported */
+#undef STARPU_MAXCPUS
+
+/* maximum number of CUDA devices */
+#undef STARPU_MAXCUDADEVS
+
+/* maximum number of implementations */
+#undef STARPU_MAXIMPLEMENTATIONS
+
+/* maximum number of MIC cores */
+#undef STARPU_MAXMICCORES
+
+/* maximum number of MIC devices */
+#undef STARPU_MAXMICDEVS
+
+/* maximum number of message-passing kernels */
+#undef STARPU_MAXMPKERNELS
+
+/* maximum number of memory nodes */
+#undef STARPU_MAXNODES
+
+/* maximum number of OPENCL devices */
+#undef STARPU_MAXOPENCLDEVS
+
+/* maximum number of SCC devices */
+#undef STARPU_MAXSCCDEVS
+
+/* enable memory stats */
+#undef STARPU_MEMORY_STATS
+
+/* MIC RMA transfer is enable */
+#undef STARPU_MIC_USE_RMA
+
+/* Minor version number of StarPU. */
+#undef STARPU_MINOR_VERSION
+
+/* use MKL library */
+#undef STARPU_MKL
+
+/* enable performance model debug */
+#undef STARPU_MODEL_DEBUG
+
+/* enable StarPU MPI activity polling method */
+#undef STARPU_MPI_ACTIVITY
+
+/* Using native windows threads */
+#undef STARPU_NATIVE_WINTHREADS
+
+/* enable new check */
+#undef STARPU_NEW_CHECK
+
+/* how many buffers can be manipulated per task */
+#undef STARPU_NMAXBUFS
+
+/* Maximum number of workers */
+#undef STARPU_NMAXWORKERS
+
+/* Maximum number of worker combinations */
+#undef STARPU_NMAX_COMBINEDWORKERS
+
+/* Maximum number of sched_ctxs supported */
+#undef STARPU_NMAX_SCHED_CTXS
+
+/* drivers must progress */
+#undef STARPU_NON_BLOCKING_DRIVERS
+
+/* disable assertions */
+#undef STARPU_NO_ASSERT
+
+/* Define this to enable using an OpenCL simulator */
+#undef STARPU_OPENCL_SIMULATOR
+
+/* enable OpenGL rendering of some examples */
+#undef STARPU_OPENGL_RENDER
+
+/* Define this to enable OpenMP runtime support */
+#undef STARPU_OPENMP
+
+/* enable performance debug */
+#undef STARPU_PERF_DEBUG
+
+/* performance models location */
+#undef STARPU_PERF_MODEL_DIR
+
+/* enable quick check */
+#undef STARPU_QUICK_CHECK
+
+/* Release version number of StarPU. */
+#undef STARPU_RELEASE_VERSION
+
+/* enable debug sc_hypervisor */
+#undef STARPU_SC_HYPERVISOR_DEBUG
+
+/* Define this to enable simgrid execution */
+#undef STARPU_SIMGRID
+
+/* Define to 1 if you have the `xbt_barrier_init' function. */
+#undef STARPU_SIMGRID_HAVE_XBT_BARRIER_INIT
+
+/* check spinlock use */
+#undef STARPU_SPINLOCK_CHECK
+
+/* location of StarPU sources */
+#undef STARPU_SRC_DIR
+
+/* use user defined library */
+#undef STARPU_SYSTEM_BLAS
+
+/* enable data allocation cache */
+#undef STARPU_USE_ALLOCATION_CACHE
+
+/* CPU driver is activated */
+#undef STARPU_USE_CPU
+
+/* CUDA support is activated */
+#undef STARPU_USE_CUDA
+
+/* Define to 1 if drandr48 is available and should be used */
+#undef STARPU_USE_DRAND48
+
+/* Define to 1 if erandr48_r is available */
+#undef STARPU_USE_ERAND48_R
+
+/* enable FxT traces */
+#undef STARPU_USE_FXT
+
+/* MIC workers support is enabled */
+#undef STARPU_USE_MIC
+
+/* Message-passing SINKs support is enabled */
+#undef STARPU_USE_MP
+
+/* whether the StarPU MPI library is available */
+#undef STARPU_USE_MPI
+
+/* OpenCL support is activated */
+#undef STARPU_USE_OPENCL
+
+/* SCC support is enabled */
+#undef STARPU_USE_SCC
+
+/* enable sc_hypervisor lib */
+#undef STARPU_USE_SC_HYPERVISOR
+
+/* StarPU-Top is activated */
+#undef STARPU_USE_TOP
+
+/* Define to 1 to disable STARPU_SKIP_IF_VALGRIND when running tests. */
+#undef STARPU_VALGRIND_FULL
+
+/* display verbose debug messages */
+#undef STARPU_VERBOSE
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Version number of package */
+#undef VERSION
+
+/* Define to 1 if the X Window System is missing or not being used. */
+#undef X_DISPLAY_MISSING
+
+/* Define to the equivalent of the C99 'restrict' keyword, or to
+   nothing if this is not supported.  Do not define if restrict is
+   supported directly.  */
+#undef restrict
+/* Work around a bug in Sun C++: it does not support _Restrict or
+   __restrict__, even though the corresponding Sun C compiler ends up with
+   "#define restrict _Restrict" or "#define restrict __restrict__" in the
+   previous line.  Perhaps some future version of Sun C++ will work with
+   restrict; if so, hopefully it defines __RESTRICT like Sun C does.  */
+#if defined __SUNPRO_CC && !defined __RESTRICT
+# define _Restrict
+# define __restrict__
+#endif
+
+
+#if defined(STARPU_DEVEL) && defined(BUILDING_STARPU)
+#  ifndef STARPU_CHECKED_UNISTD_H
+#    define STARPU_CHECKED_UNISTD_H
+#    ifdef _UNISTD_H
+#      define _UNISTD_H PLEASE_DONT_INCLUDE_IT
+#      error Please do not unconditionally include unistd.h, it is not available on Windows, include config.h and test for HAVE_UNISTD_H
+#    endif
+#  endif
+#endif
+

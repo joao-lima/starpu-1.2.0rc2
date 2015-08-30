@@ -1,0 +1,41 @@
+# -*- sh -*-
+
+# Versioning (SONAMEs) for StarPU libraries.
+
+# http://www.gnu.org/software/libtool/manual/html_node/Updating-version-info.html#Updating-version-info
+# Here are a set of rules to help you update your library version information:
+# Start with version information of ‘0:0:0’ for each libtool library.
+# Update the version information only immediately before a public
+# release of your software. More frequent updates are unnecessary, and
+# only guarantee that the current interface number gets larger faster.
+# - If the library source code has changed at all since the last
+#   update, then increment revision (‘c:r:a’ becomes ‘c:r+1:a’).
+# - If any interfaces have been added, removed, or changed since the
+#   last update, increment current, and set revision to 0.
+# - If any interfaces have been added since the last public release,
+#   then increment age.
+# - If any interfaces have been removed or changed since the last
+#   public release, then set age to 0. change
+
+# This is the tarball version, major.minor
+STARPU_EFFECTIVE_VERSION=1.2
+
+# Note for StarPU 1.1: we have changed ABI
+# Note for StarPU 1.2: reset everything to 0:0:0
+
+# Libtool interface versioning (info "(libtool) Versioning").
+LIBSTARPU_INTERFACE_CURRENT=1	# increment upon ABI change
+LIBSTARPU_INTERFACE_REVISION=0	# increment upon implementation change
+LIBSTARPU_INTERFACE_AGE=0	# set to CURRENT - PREVIOUS interface
+
+LIBSTARPUFFT_INTERFACE_CURRENT=0	# increment upon ABI change
+LIBSTARPUFFT_INTERFACE_REVISION=0	# increment upon implementation change
+LIBSTARPUFFT_INTERFACE_AGE=0		# set to CURRENT - PREVIOUS interface
+
+LIBSTARPUMPI_INTERFACE_CURRENT=0	# increment upon ABI change
+LIBSTARPUMPI_INTERFACE_REVISION=1	# increment upon implementation change
+LIBSTARPUMPI_INTERFACE_AGE=0		# set to CURRENT - PREVIOUS interface
+
+LIBSOCL_INTERFACE_CURRENT=0	# increment upon ABI change
+LIBSOCL_INTERFACE_REVISION=0	# increment upon implementation change
+LIBSOCL_INTERFACE_AGE=0		# set to CURRENT - PREVIOUS interface

@@ -1,0 +1,53 @@
+/*
+ * This file is part of the StarPU Handbook.
+ * Copyright (C) 2009--2011  Universit@'e de Bordeaux
+ * Copyright (C) 2010, 2011, 2012, 2013, 2014  CNRS
+ * Copyright (C) 2011, 2012 INRIA
+ * See the file version.doxy for copying conditions.
+ */
+
+/*! \defgroup API_Miscellaneous_Helpers Miscellaneous Helpers
+
+\fn int starpu_data_cpy(starpu_data_handle_t dst_handle, starpu_data_handle_t src_handle, int asynchronous, void (*callback_func)(void*), void *callback_arg)
+\ingroup API_Miscellaneous_Helpers
+Copy the content of \p src_handle into \p dst_handle. The parameter \p
+asynchronous indicates whether the function should block or not. In
+the case of an asynchronous call, it is possible to synchronize with
+the termination of this operation either by the means of implicit
+dependencies (if enabled) or by calling starpu_task_wait_for_all(). If
+\p callback_func is not NULL, this callback function is executed after
+the handle has been copied, and it is given the pointer \p callback_arg as argument.
+
+\fn void starpu_execute_on_each_worker(void (*func)(void *), void *arg, uint32_t where)
+\ingroup API_Miscellaneous_Helpers
+This function executes the given function on a subset of workers. When
+calling this method, the offloaded function \p func is executed by
+every StarPU worker that may execute the function. The argument \p arg
+is passed to the offloaded function. The argument \p where specifies
+on which types of processing units the function should be executed.
+Similarly to the field starpu_codelet::where, it is possible to
+specify that the function should be executed on every CUDA device and
+every CPU by passing ::STARPU_CPU|::STARPU_CUDA. This function blocks
+until the function has been executed on every appropriate processing
+units, so that it may not be called from a callback function for
+instance.
+
+\fn void starpu_execute_on_each_worker_ex(void (*func)(void *), void *arg, uint32_t where, const char *name)
+\ingroup API_Miscellaneous_Helpers
+Same as starpu_execute_on_each_worker(), except that the task name is
+specified in the argument \p name.
+
+\fn void starpu_execute_on_specific_workers(void (*func)(void*), void *arg, unsigned num_workers, unsigned *workers, const char *name);
+\ingroup API_Miscellaneous_Helpers
+Call \p func(\p arg) on every worker in the \p workers array. \p
+num_workers indicates the number of workers in this array.  This
+function is synchronous, but the different workers may execute the
+function in parallel.
+
+\fn double starpu_timing_now(void)
+\ingroup API_Miscellaneous_Helpers
+Return the current date in micro-seconds.
+
+
+*/
+

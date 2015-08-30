@@ -1,0 +1,155 @@
+{
+   don't care about cache hit stats
+   Helgrind:Race
+   fun:_starpu_msi_cache_hit
+   ...
+}
+
+{
+   don't care about cache miss stats
+   Helgrind:Race
+   fun:_starpu_msi_cache_miss
+   ...
+}
+
+{
+   known race, but not problematic in practice, see comment in _starpu_tag_clear
+   Helgrind:LockOrder
+   ...
+   fun:_starpu_tag_free
+   fun:_starpu_htbl_clear_tags
+   ...
+   fun:_starpu_tag_clear
+   fun:starpu_shutdown
+   ...
+}
+
+
+{
+   There is actually no race on current_mode, because the mode can not change unexpectedly, until _starpu_notify_data_dependencies() is called further down. Valgrind can not know about such software rwlock.
+   Helgrind:Race
+   fun:_starpu_release_data_on_node
+   fun:_starpu_push_task_output
+   ...
+}
+
+{
+   We do not care about races on profiling statistics
+   Helgrind:Race
+   fun:_starpu_worker_get_status
+   fun:_starpu_worker_reset_profiling_info_with_lock
+   ...
+}
+
+{
+   This is racy, but since we'll always put the same values, this is not a problem.
+   Helgrind:Race
+   fun:_starpu_codelet_check_deprecated_fields
+   ...
+}
+
+{
+   This is racy, but we don't care, it's only a statistic
+   Helgrind:Race
+   fun:starpu_task_nsubmitted
+   ...
+}
+
+{
+   This is racy, but we don't care, it's only a statistic
+   Helgrind:Race
+   fun:starpu_task_nready
+   ...
+}
+
+{
+   This is racy, but we don't care, it's only a statistic
+   Helgrind:Race
+   fun:_starpu_bus_update_profiling_info
+   ...
+}
+
+{
+   fscanf error
+   Memcheck:Cond
+   ...
+   fun:fscanf
+   fun:_starpu_load_bus_performance_files
+   ...
+}
+
+{
+   mc / handle locking order. We always take handle before mc, except when we tidy memory, where we use trylock, but helgrind doesn't handle that :/
+   Helgrind:LockOrder
+   ...
+   fun:_starpu_spin_trylock
+   fun:lock_all_subtree
+   ...
+}
+
+{
+   mc / handle locking order2
+   Helgrind:LockOrder
+   ...
+   fun:_starpu_spin_lock
+   fun:_starpu_memchunk_recently_used
+   ...
+}
+
+{
+   mc / handle locking order3
+   Helgrind:LockOrder
+   ...
+   fun:_starpu_spin_lock
+   fun:_starpu_request_mem_chunk_removal
+   ...
+}
+
+{
+   mc / handle locking order4
+   Helgrind:LockOrder
+   ...
+   fun:_starpu_spin_lock
+   fun:_starpu_allocate_interface
+   ...
+}
+
+{
+   TODO1: This is temporary. It perhaps does not pose problem because only the worker takes this mutex. Fixing this will require changing the scheduler interface, so that the schedulers themselves take the scheduling lock, not the caller. Filter it out for now, so we can see other races more easily.
+   Helgrind:LockOrder
+   fun:pthread_mutex_lock
+   fun:starpu_pthread_mutex_lock
+   fun:simple_worker_pull_task
+   ...
+}
+
+{
+   TODO1: This is temporary. It perhaps does not pose problem because only the worker takes this mutex. Fixing this will require changing the scheduler interface, so that the schedulers themselves take the scheduling lock, not the caller. Filter it out for now, so we can see other races more easily.
+   Helgrind:LockOrder
+   fun:pthread_mutex_lock
+   fun:starpu_pthread_mutex_lock
+   fun:_starpu_sched_component_worker_lock_scheduling
+   fun:simple_worker_pull_task
+   ...
+}
+
+{
+   TODO2: This is temporary. It perhaps does not pose problem because only the worker takes this mutex. Fixing this will require changing the scheduler interface, so that the schedulers themselves take the scheduling lock, not the caller. Filter it out for now, so we can see other races more easily.
+   Helgrind:LockOrder
+   fun:pthread_mutex_lock
+   fun:starpu_pthread_mutex_lock
+   fun:_starpu_sched_component_lock_worker
+   fun:simple_worker_pull_task
+   ...
+}
+
+{
+   TODO2: This is temporary. It perhaps does not pose problem because only the worker takes this mutex. Fixing this will require changing the scheduler interface, so that the schedulers themselves take the scheduling lock, not the caller. Filter it out for now, so we can see other races more easily.
+   Helgrind:LockOrder
+   fun:pthread_mutex_lock
+   fun:starpu_pthread_mutex_lock
+   fun:_starpu_sched_component_lock_worker
+   fun:_starpu_sched_component_worker_lock_scheduling
+   fun:simple_worker_pull_task
+   ...
+}

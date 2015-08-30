@@ -1,0 +1,89 @@
+/*
+ * This file is part of the StarPU Handbook.
+ * Copyright (C) 2009--2011  Universit@'e de Bordeaux
+ * Copyright (C) 2010, 2011, 2012, 2013, 2014  CNRS
+ * Copyright (C) 2011, 2012 INRIA
+ * See the file version.doxy for copying conditions.
+ */
+
+/*! \defgroup API_FxT_Support FxT Support
+
+\struct starpu_fxt_codelet_event
+todo
+\ingroup API_FxT_Support
+\var char starpu_fxt_codelet_event::symbol[256]
+name of the codelet
+\var int starpu_fxt_codelet_event::workerid
+\var char starpu_fxt_codelet_event::perfmodel_archname[256]
+\var uint32_t starpu_fxt_codelet_event::hash
+\var size_t starpu_fxt_codelet_event::size
+\var float starpu_fxt_codelet_event::time
+
+\struct starpu_fxt_options
+todo
+\ingroup API_FxT_Support
+\var unsigned starpu_fxt_options::per_task_colour
+\var unsigned starpu_fxt_options::no_counter
+\var starpu_unsigned fxt_options::no_bus
+\var unsigned starpu_fxt_options::ninputfiles
+\var char *starpu_fxt_options::filenames[STARPU_FXT_MAX_FILES]
+\var char *starpu_fxt_options::out_paje_path
+\var char *starpu_fxt_options::distrib_time_path
+\var char *starpu_fxt_options::activity_path
+\var char *starpu_fxt_options::dag_path
+
+\var char *starpu_fxt_options::file_prefix
+In case we are going to gather multiple traces (e.g in the case of MPI
+processes), we may need to prefix the name of the containers.
+\var uint64_t starpu_fxt_options::file_offset
+In case we are going to gather multiple traces (e.g in the case of MPI
+processes), we may need to prefix the name of the containers.
+\var int starpu_fxt_options::file_rank
+In case we are going to gather multiple traces (e.g in the case of MPI
+processes), we may need to prefix the name of the containers.
+
+\var char starpu_fxt_options::worker_names[STARPU_NMAXWORKERS][256]
+Output parameters
+\var struct starpu_perfmodel_arch starpu_fxt_options::worker_archtypes[STARPU_NMAXWORKERS]
+Output parameters
+\var int starpu_fxt_options::nworkers
+Output parameters
+
+\var struct starpu_fxt_codelet_event **starpu_fxt_options::dumped_codelets
+In case we want to dump the list of codelets to an external tool
+\var long starpu_fxt_options::dumped_codelets_count
+In case we want to dump the list of codelets to an external tool
+
+\fn void starpu_fxt_options_init(struct starpu_fxt_options *options)
+\ingroup API_FxT_Support
+todo
+
+\fn void starpu_fxt_generate_trace(struct starpu_fxt_options *options)
+\ingroup API_FxT_Support
+todo
+
+\fn void starpu_fxt_start_profiling(void)
+\ingroup API_FxT_Support
+Start recording the trace. The trace is by default started from
+starpu_init() call, but can be paused by using
+starpu_fxt_stop_profiling(), in which case
+starpu_fxt_start_profiling() should be called to resume recording
+events.
+
+\fn void starpu_fxt_stop_profiling(void)
+\ingroup API_FxT_Support
+Stop recording the trace. The trace is by default stopped when calling
+starpu_shutdown(). starpu_fxt_stop_profiling() can however be used to
+stop it earlier. starpu_fxt_start_profiling() can then be called to
+start recording it again, etc.
+
+\fn void starpu_fxt_write_data_trace(char *filename_in)
+\ingroup API_FxT_Support
+todo
+
+\fn void starpu_fxt_trace_user_event(unsigned long code)
+\ingroup API_FxT_Support
+Add an event in the execution trace if FxT is enabled.
+
+*/
+

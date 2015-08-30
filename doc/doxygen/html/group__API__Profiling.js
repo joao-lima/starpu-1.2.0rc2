@@ -1,0 +1,55 @@
+var group__API__Profiling =
+[
+    [ "starpu_profiling_task_info", "group__API__Profiling.html#structstarpu__profiling__task__info", [
+      [ "submit_time", "group__API__Profiling.html#a3a1a7c8e4ce2552a0f96a8dd4f9ad37f", null ],
+      [ "push_start_time", "group__API__Profiling.html#aa28c145b4543cceed05a1bba0478577e", null ],
+      [ "push_end_time", "group__API__Profiling.html#a650860076a4d4c07929e97ec64386724", null ],
+      [ "pop_start_time", "group__API__Profiling.html#a55f39da3b4c223d4cfc5bf7456692179", null ],
+      [ "pop_end_time", "group__API__Profiling.html#a9e1ae88eb46e9b9867cb41d0584ace7b", null ],
+      [ "acquire_data_start_time", "group__API__Profiling.html#a8f1fe52f21a7fc58860cf2f163ec868a", null ],
+      [ "acquire_data_end_time", "group__API__Profiling.html#a0a43cc6fa5233d8d7e7ab0821607068c", null ],
+      [ "start_time", "group__API__Profiling.html#ab8de457be74df606d29c3efa1169998a", null ],
+      [ "end_time", "group__API__Profiling.html#ade189cd6175d789db1eb6bfad19b3e35", null ],
+      [ "release_data_start_time", "group__API__Profiling.html#aae7bd9f557dffe9883629df980eee606", null ],
+      [ "release_data_end_time", "group__API__Profiling.html#a8f4291afbbd7fcf885a3d30a72f2dd78", null ],
+      [ "callback_start_time", "group__API__Profiling.html#a4ad1ae7ed15ea7001b5dc8e1d9579235", null ],
+      [ "callback_end_time", "group__API__Profiling.html#a3296b9aa5339bf99f00f5377517c2390", null ],
+      [ "workerid", "group__API__Profiling.html#a19a06e7ef34a9a4587e77949ded36644", null ],
+      [ "used_cycles", "group__API__Profiling.html#aec88f33a8b4777727d80296c16d85f24", null ],
+      [ "stall_cycles", "group__API__Profiling.html#a78e32404bdff71292562d2dc5892061c", null ],
+      [ "power_consumed", "group__API__Profiling.html#a3dc8ab8098e5a1e7c1989219a8f5bab1", null ]
+    ] ],
+    [ "starpu_profiling_worker_info", "group__API__Profiling.html#structstarpu__profiling__worker__info", [
+      [ "start_time", "group__API__Profiling.html#aed6a8be9b919f03e093912bfc44c5559", null ],
+      [ "total_time", "group__API__Profiling.html#aae49335c3c189b58103cb649fc169096", null ],
+      [ "executing_time", "group__API__Profiling.html#a050199a48e0073f892cd6dd9049a4edf", null ],
+      [ "sleeping_time", "group__API__Profiling.html#acc882d8569e28d51fd5e820962fed773", null ],
+      [ "executed_tasks", "group__API__Profiling.html#a73a1303e033dffe94ff162e8e21122d1", null ],
+      [ "used_cycles", "group__API__Profiling.html#a5f76b7a4cc42a28735e0871439040319", null ],
+      [ "stall_cycles", "group__API__Profiling.html#a24037f0f53113b23f32c7af7a39f982d", null ],
+      [ "power_consumed", "group__API__Profiling.html#a02d663804c1dd04fa48e368f72f9b5f1", null ]
+    ] ],
+    [ "starpu_profiling_bus_info", "group__API__Profiling.html#structstarpu__profiling__bus__info", [
+      [ "start_time", "group__API__Profiling.html#a8032d6b4c3391555b255718d7da4279c", null ],
+      [ "total_time", "group__API__Profiling.html#a46492a6afad2c9069b84110d6d9e86be", null ],
+      [ "transferred_bytes", "group__API__Profiling.html#a029068c588c17476bf07a4a4a2bd690b", null ],
+      [ "transfer_count", "group__API__Profiling.html#a34ad3d96e949d8030473300e13aa1c0c", null ]
+    ] ],
+    [ "STARPU_PROFILING_DISABLE", "group__API__Profiling.html#gacd7d4b9e0d31ea949f7c14fed739a502", null ],
+    [ "STARPU_PROFILING_ENABLE", "group__API__Profiling.html#ga24254aaa82ee94c3e6b8b2e21185db32", null ],
+    [ "starpu_profiling_status_set", "group__API__Profiling.html#gabeb22bbe8062a45507cfc6273aae51ae", null ],
+    [ "starpu_profiling_status_get", "group__API__Profiling.html#gaf014e2e050ebd38bc4cffec0081f96bf", null ],
+    [ "starpu_profiling_init", "group__API__Profiling.html#ga6ab0a1e4a8a55e0c54e2151fd0a82a36", null ],
+    [ "starpu_profiling_set_id", "group__API__Profiling.html#gad126fc77826a0472b6bd872e7ceb40d4", null ],
+    [ "starpu_profiling_worker_get_info", "group__API__Profiling.html#ga8a423df93ec48a7391b2f439357a5544", null ],
+    [ "starpu_bus_get_profiling_info", "group__API__Profiling.html#ga76ad19fc8b99bcd42d505c76aafae6b6", null ],
+    [ "starpu_bus_get_count", "group__API__Profiling.html#ga8dc4665fdbbbf8ce8f1b905aa8411642", null ],
+    [ "starpu_bus_get_id", "group__API__Profiling.html#ga7c70803a54aa1e5b463ebb19110c4aa2", null ],
+    [ "starpu_bus_get_src", "group__API__Profiling.html#ga858f465a2dcbcadb6169a7926e38a4d1", null ],
+    [ "starpu_bus_get_dst", "group__API__Profiling.html#ga8ded3aa2a94ec7a5cd46e2e70a918c65", null ],
+    [ "starpu_timing_timespec_delay_us", "group__API__Profiling.html#gacf0b5499290848f07c97a32c6c2412db", null ],
+    [ "starpu_timing_timespec_to_us", "group__API__Profiling.html#ga87639260ff5c89f466e83fcc093e77fe", null ],
+    [ "starpu_profiling_bus_helper_display_summary", "group__API__Profiling.html#ga6511f50290edcabbdf605a1b74746645", null ],
+    [ "starpu_profiling_worker_helper_display_summary", "group__API__Profiling.html#ga4e4f9fb593d29219a1109062ba9d72ef", null ],
+    [ "starpu_data_display_memory_stats", "group__API__Profiling.html#ga6b93e19cf6ddd63d7eaee6749a7bdcf1", null ]
+];

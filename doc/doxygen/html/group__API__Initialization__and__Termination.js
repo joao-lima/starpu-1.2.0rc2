@@ -1,0 +1,58 @@
+var group__API__Initialization__and__Termination =
+[
+    [ "starpu_driver", "group__API__Initialization__and__Termination.html#structstarpu__driver", [
+      [ "type", "group__API__Initialization__and__Termination.html#a50af396b52e8c54e4e3b23803105fc0e", null ],
+      [ "id", "group__API__Initialization__and__Termination.html#aa29a395ef3d7f4c9f060fc2a5db73c60", null ]
+    ] ],
+    [ "starpu_driver.id", "group__API__Initialization__and__Termination.html#unionstarpu__driver_8id", [
+      [ "cpu_id", "group__API__Initialization__and__Termination.html#a0b65ca7e1cb2cdbbfd3e5ef3a25d4c84", null ],
+      [ "cuda_id", "group__API__Initialization__and__Termination.html#af850029744b5a38d0f28a57605f83949", null ],
+      [ "opencl_id", "group__API__Initialization__and__Termination.html#abf02a0281a579ef7892d724aff0094e9", null ]
+    ] ],
+    [ "starpu_conf", "group__API__Initialization__and__Termination.html#structstarpu__conf", [
+      [ "magic", "group__API__Initialization__and__Termination.html#a057facba9480299fca80def536f2314a", null ],
+      [ "sched_policy_name", "group__API__Initialization__and__Termination.html#adfc5911b1042a9d0edd8ef1ed16f03d6", null ],
+      [ "sched_policy", "group__API__Initialization__and__Termination.html#adf3d42945dba3e6c41a7c9258b192acd", null ],
+      [ "ncpus", "group__API__Initialization__and__Termination.html#a68e93f60a9f8e4c82ab2af6a9cd3888a", null ],
+      [ "ncuda", "group__API__Initialization__and__Termination.html#af4d7aba8f400e06ffd8847c7f12e21e7", null ],
+      [ "nopencl", "group__API__Initialization__and__Termination.html#aaf12d9f477d96213136483378f9b589b", null ],
+      [ "nmic", "group__API__Initialization__and__Termination.html#a4fef1f76f17a358df65a3c07cbce82d4", null ],
+      [ "nscc", "group__API__Initialization__and__Termination.html#aeeecb48dec535b9209ef91cb6e7e9cdf", null ],
+      [ "use_explicit_workers_bindid", "group__API__Initialization__and__Termination.html#affd5b335a988c417ecb679d5ecf7c489", null ],
+      [ "workers_bindid", "group__API__Initialization__and__Termination.html#a2275c89ee0aded13cc8836a0c5ef0188", null ],
+      [ "use_explicit_workers_cuda_gpuid", "group__API__Initialization__and__Termination.html#a27718585874f9012e9955ba308e2cd8f", null ],
+      [ "workers_cuda_gpuid", "group__API__Initialization__and__Termination.html#af482c3dac3ed6d28ee51e72c9ad636e1", null ],
+      [ "use_explicit_workers_opencl_gpuid", "group__API__Initialization__and__Termination.html#a30cab554913e27a02512badaf204a266", null ],
+      [ "workers_opencl_gpuid", "group__API__Initialization__and__Termination.html#a62170298d1991dc5a9deb44c641cd405", null ],
+      [ "use_explicit_workers_mic_deviceid", "group__API__Initialization__and__Termination.html#a052f3cac0ebec9932c66d8f08cd9b6d4", null ],
+      [ "workers_mic_deviceid", "group__API__Initialization__and__Termination.html#a4c988699b09aebac518afd6d30d1e0e8", null ],
+      [ "use_explicit_workers_scc_deviceid", "group__API__Initialization__and__Termination.html#a06fa152063011cd6a2f488ffa1e9edf4", null ],
+      [ "workers_scc_deviceid", "group__API__Initialization__and__Termination.html#ae3680571934c7ce5137544f00c2fe5ef", null ],
+      [ "bus_calibrate", "group__API__Initialization__and__Termination.html#a7296fd188dcf3c5cc42f2be1cfab8fe2", null ],
+      [ "calibrate", "group__API__Initialization__and__Termination.html#ab05d39eda9e1eef89024575fcaccef23", null ],
+      [ "single_combined_worker", "group__API__Initialization__and__Termination.html#a1fc825906ff041878bc3a05ce9681e9c", null ],
+      [ "mic_sink_program_path", "group__API__Initialization__and__Termination.html#a2e76922dbcff13aab8a12c5f2630ca14", null ],
+      [ "disable_asynchronous_copy", "group__API__Initialization__and__Termination.html#a29b3ff0d1afa9e24a7edbb0765cea487", null ],
+      [ "disable_asynchronous_cuda_copy", "group__API__Initialization__and__Termination.html#a290f151da116c90c48a1885dbba9c072", null ],
+      [ "disable_asynchronous_opencl_copy", "group__API__Initialization__and__Termination.html#af4da5685fda97febf35c7f02faee66e4", null ],
+      [ "disable_asynchronous_mic_copy", "group__API__Initialization__and__Termination.html#a24e88b01a2dac637c91f21026bad95dd", null ],
+      [ "cuda_opengl_interoperability", "group__API__Initialization__and__Termination.html#a172b32e69b5b0d2f1a0566f00b975c30", null ],
+      [ "n_cuda_opengl_interoperability", "group__API__Initialization__and__Termination.html#a3efb09a64357452502843f583b94e5dc", null ],
+      [ "not_launched_drivers", "group__API__Initialization__and__Termination.html#a0977758f4062eccedf0ebd8dab868b5a", null ],
+      [ "n_not_launched_drivers", "group__API__Initialization__and__Termination.html#ae34c59d8118504e53af4ba88b4254678", null ],
+      [ "trace_buffer_size", "group__API__Initialization__and__Termination.html#a198b97daa32f2d7d7e710be6cbae63c2", null ],
+      [ "global_sched_ctx_min_priority", "group__API__Initialization__and__Termination.html#a5a36072143f87103ee20ad3aff00a3b1", null ],
+      [ "global_sched_ctx_max_priority", "group__API__Initialization__and__Termination.html#ae439173bb5082ce8d6960d06c2f8e1d3", null ]
+    ] ],
+    [ "starpu_init", "group__API__Initialization__and__Termination.html#ga9ce171bcbbee2edd169ba2649e6e75e3", null ],
+    [ "starpu_initialize", "group__API__Initialization__and__Termination.html#gab2948c26e01bbc6b29f11bfc7268e7d9", null ],
+    [ "starpu_conf_init", "group__API__Initialization__and__Termination.html#ga7f7f154a1bf9600b8ccd10436412660e", null ],
+    [ "starpu_shutdown", "group__API__Initialization__and__Termination.html#ga48edf5e30e71fbb71923e3867ad16c0a", null ],
+    [ "starpu_pause", "group__API__Initialization__and__Termination.html#ga887fbd250ba7843400b4438d617213d6", null ],
+    [ "starpu_resume", "group__API__Initialization__and__Termination.html#gad1aff0c793b50e50f995232c110bde66", null ],
+    [ "starpu_asynchronous_copy_disabled", "group__API__Initialization__and__Termination.html#ga2cf027abaf6581c7baf98f9caeb9e4e5", null ],
+    [ "starpu_asynchronous_cuda_copy_disabled", "group__API__Initialization__and__Termination.html#ga994d261c0ac05522b02ed3ab72dce2bd", null ],
+    [ "starpu_asynchronous_opencl_copy_disabled", "group__API__Initialization__and__Termination.html#ga8a817e603dd7ce77a7712f7c981da081", null ],
+    [ "starpu_asynchronous_mic_copy_disabled", "group__API__Initialization__and__Termination.html#gacfd8a8d350b5d7f874bbeef57975634d", null ],
+    [ "starpu_topology_print", "group__API__Initialization__and__Termination.html#ga0702f607811a2af4f7d2bc271eb434e9", null ]
+];
