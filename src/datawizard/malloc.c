@@ -79,7 +79,9 @@ static struct starpu_perfmodel malloc_pinned_model =
 
 static struct starpu_codelet malloc_pinned_cl =
 {
+#if defined(STARPU_USE_CUDA)
 	.cuda_funcs = {malloc_pinned_cuda_codelet},
+#endif
 #ifdef STARPU_USE_OPENCL
 	.opencl_funcs = {malloc_pinned_opencl_codelet},
 #endif
@@ -279,7 +281,9 @@ static struct starpu_perfmodel free_pinned_model =
 
 static struct starpu_codelet free_pinned_cl =
 {
+#if defined(STARPU_USE_CUDA)
 	.cuda_funcs = {free_pinned_cuda_codelet},
+#endif
 #ifdef STARPU_USE_OPENCL
 	.opencl_funcs = {free_pinned_opencl_codelet},
 #endif
