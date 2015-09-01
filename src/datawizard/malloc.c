@@ -370,7 +370,7 @@ int starpu_free_flags(void *A, size_t dim, int flags)
 	else
 		free(A);
 
-#if !defined(STARPU_SIMGRID) && defined(STARPU_USE_CUDA)
+#if !defined(STARPU_SIMGRID) && (defined(STARPU_USE_CUDA) || defined(STARPU_USE_OPENCL))
 out:
 #endif
 	if (flags & STARPU_MALLOC_COUNT)
