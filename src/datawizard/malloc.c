@@ -51,8 +51,10 @@ struct malloc_pinned_codelet_struct
 static void malloc_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
 {
 	struct malloc_pinned_codelet_struct *s = arg;
+  int id = starpu_worker_get_id();
+  int devid = starpu_worker_get_devid(id);
         //        *(s->ptr) = malloc(s->dim);
-        starpu_opencl_allocate_memory(devid, (void **)(s->ptr), s->dim, CL_MEM_READ_WRITE|CL_MEM_ALLOC_HOST_PTR);
+        starpu_opencl_allocate_memory(devid, (cl_mem *)(s->ptr), s->dim, CL_MEM_READ_WRITE|CL_MEM_ALLOC_HOST_PTR);
 }
 #endif
 
@@ -229,7 +231,7 @@ int starpu_malloc_flags(void **A, size_t dim, int flags)
 				ret = -ENOMEM;
 		}
 
-#if !defined(STARPU_SIMGRID) && defined(STARPU_USE_CUDA)
+#if !defined(STARPU_SIMGRID) && (defined(STARPU_USE_CUDA) || defined(STARPU_USE_OPENCL))
 end:
 #endif
 	if (ret == 0)
@@ -268,7 +270,7 @@ static void free_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, 
 }
 #endif
 
-#if defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER) && !defined(STARPU_SIMGRID) // || defined(STARPU_USE_OPENCL)
+#if defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER) && !defined(STARPU_SIMGRID)  || defined(STARPU_USE_OPENCL)
 static struct starpu_perfmodel free_pinned_model =
 {
 	.type = STARPU_HISTORY_BASED,
