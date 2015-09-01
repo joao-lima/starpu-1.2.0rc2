@@ -251,7 +251,7 @@ static starpu_ssize_t allocate_vector_buffer_on_node(void *data_interface_, unsi
 	if (!handle)
 		return -ENOMEM;
 
-//	if (starpu_node_get_kind(dst_node) != STARPU_OPENCL_RAM)
+	if (starpu_node_get_kind(dst_node) != STARPU_OPENCL_RAM)
 		addr = handle;
 
 	allocated_memory = nx*elemsize;
