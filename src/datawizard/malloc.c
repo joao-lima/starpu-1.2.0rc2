@@ -37,7 +37,7 @@ void starpu_malloc_set_align(size_t align)
 		_malloc_align = align;
 }
 
-#if (defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER))// || defined(STARPU_USE_OPENCL)
+#if (defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER)) || defined(STARPU_USE_OPENCL)
 struct malloc_pinned_codelet_struct
 {
 	void **ptr;
@@ -47,14 +47,14 @@ struct malloc_pinned_codelet_struct
 
 /* Would be difficult to do it this way, we need to remember the cl_mem to be able to free it later... */
 
-//#ifdef STARPU_USE_OPENCL
-//static void malloc_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
-//{
-//	struct malloc_pinned_codelet_struct *s = arg;
-//        //        *(s->ptr) = malloc(s->dim);
-//        starpu_opencl_allocate_memory(devid, (void **)(s->ptr), s->dim, CL_MEM_READ_WRITE|CL_MEM_ALLOC_HOST_PTR);
-//}
-//#endif
+#ifdef STARPU_USE_OPENCL
+static void malloc_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
+{
+	struct malloc_pinned_codelet_struct *s = arg;
+        //        *(s->ptr) = malloc(s->dim);
+        starpu_opencl_allocate_memory(devid, (void **)(s->ptr), s->dim, CL_MEM_READ_WRITE|CL_MEM_ALLOC_HOST_PTR);
+}
+#endif
 
 #if defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER) && !defined(STARPU_SIMGRID)
 static void malloc_pinned_cuda_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
@@ -68,7 +68,7 @@ static void malloc_pinned_cuda_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, 
 }
 #endif
 
-#if (defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER)) && !defined(STARPU_SIMGRID)// || defined(STARPU_USE_OPENCL)
+#if (defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER)) && !defined(STARPU_SIMGRID) || defined(STARPU_USE_OPENCL)
 static struct starpu_perfmodel malloc_pinned_model =
 {
 	.type = STARPU_HISTORY_BASED,
@@ -78,9 +78,9 @@ static struct starpu_perfmodel malloc_pinned_model =
 static struct starpu_codelet malloc_pinned_cl =
 {
 	.cuda_funcs = {malloc_pinned_cuda_codelet},
-//#ifdef STARPU_USE_OPENCL
-//	.opencl_funcs = {malloc_pinned_opencl_codelet},
-//#endif
+#ifdef STARPU_USE_OPENCL
+	.opencl_funcs = {malloc_pinned_opencl_codelet},
+#endif
 	.nbuffers = 0,
 	.model = &malloc_pinned_model
 };
@@ -166,34 +166,34 @@ int starpu_malloc_flags(void **A, size_t dim, int flags)
 #endif /* HAVE_CUDA_MEMCPY_PEER */
 #endif /* STARPU_USE_CUDA */
 		}
-//		else if (_starpu_can_submit_opencl_task())
-//		{
-//#ifdef STARPU_USE_OPENCL
-//			int push_res;
-//
-//			STARPU_ASSERT_MSG(_starpu_worker_may_perform_blocking_calls(), "pinned OpenCL allocation must not be done from task or callback");
-//
-//			struct malloc_pinned_codelet_struct s =
-//				{
-//					.ptr = A,
-//					.dim = dim
-//				};
-//
-//			malloc_pinned_cl.where = STARPU_OPENCL;
-//			struct starpu_task *task = starpu_task_create();
-//		        task->name = "opencl_malloc_pinned";
-//			task->callback_func = NULL;
-//			task->cl = &malloc_pinned_cl;
-//			task->cl_arg = &s;
-//			task->synchronous = 1;
-//
-//			_starpu_exclude_task_from_dag(task);
-//
-//			push_res = _starpu_task_submit_internally(task);
-//			STARPU_ASSERT(push_res != -ENODEV);
-//			goto end;
-//#endif /* STARPU_USE_OPENCL */
-//		}
+		else if (_starpu_can_submit_opencl_task())
+		{
+#ifdef STARPU_USE_OPENCL
+			int push_res;
+
+			STARPU_ASSERT_MSG(_starpu_worker_may_perform_blocking_calls(), "pinned OpenCL allocation must not be done from task or callback");
+
+			struct malloc_pinned_codelet_struct s =
+				{
+					.ptr = A,
+					.dim = dim
+				};
+
+			malloc_pinned_cl.where = STARPU_OPENCL;
+			struct starpu_task *task = starpu_task_create();
+		        task->name = "opencl_malloc_pinned";
+			task->callback_func = NULL;
+			task->cl = &malloc_pinned_cl;
+			task->cl_arg = &s;
+			task->synchronous = 1;
+
+			_starpu_exclude_task_from_dag(task);
+
+			push_res = _starpu_task_submit_internally(task);
+			STARPU_ASSERT(push_res != -ENODEV);
+			goto end;
+#endif /* STARPU_USE_OPENCL */
+		}
 #endif /* STARPU_SIMGRID */
 	}
 
@@ -259,14 +259,14 @@ static void free_pinned_cuda_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, vo
 }
 #endif
 
-//#ifdef STARPU_USE_OPENCL
-//static void free_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
-//{
-//        //        free(arg);
-//        int err = clReleaseMemObject(arg);
-//        if (err != CL_SUCCESS) STARPU_OPENCL_REPORT_ERROR(err);
-//}
-//#endif
+#ifdef STARPU_USE_OPENCL
+static void free_pinned_opencl_codelet(void *buffers[] STARPU_ATTRIBUTE_UNUSED, void *arg)
+{
+        //        free(arg);
+        int err = clReleaseMemObject(arg);
+        if (err != CL_SUCCESS) STARPU_OPENCL_REPORT_ERROR(err);
+}
+#endif
 
 #if defined(STARPU_USE_CUDA) && !defined(HAVE_CUDA_MEMCPY_PEER) && !defined(STARPU_SIMGRID) // || defined(STARPU_USE_OPENCL)
 static struct starpu_perfmodel free_pinned_model =
@@ -278,9 +278,9 @@ static struct starpu_perfmodel free_pinned_model =
 static struct starpu_codelet free_pinned_cl =
 {
 	.cuda_funcs = {free_pinned_cuda_codelet},
-//#ifdef STARPU_USE_OPENCL
-//	.opencl_funcs = {free_pinned_opencl_codelet},
-//#endif
+#ifdef STARPU_USE_OPENCL
+	.opencl_funcs = {free_pinned_opencl_codelet},
+#endif
 	.nbuffers = 0,
 	.model = &free_pinned_model
 };
@@ -330,28 +330,28 @@ int starpu_free_flags(void *A, size_t dim, int flags)
 #endif /* HAVE_CUDA_MEMCPY_PEER */
 #endif /* STARPU_USE_CUDA */
 		}
-//	else if (_starpu_can_submit_opencl_task())
-//	{
-//#ifdef STARPU_USE_OPENCL
-//		int push_res;
-//
-//		STARPU_ASSERT_MSG(_starpu_worker_may_perform_blocking_calls(), "pinned OpenCL deallocation must not be done from task or callback");
-//
-//                free_pinned_cl.where = STARPU_OPENCL;
-//		struct starpu_task *task = starpu_task_create();
-//              task->name = "opencl_free_pinned";
-//		task->callback_func = NULL;
-//		task->cl = &free_pinned_cl;
-//		task->cl_arg = A;
-//		task->synchronous = 1;
-//
-//		_starpu_exclude_task_from_dag(task);
-//
-//		push_res = starpu_task_submit(task);
-//		STARPU_ASSERT(push_res != -ENODEV);
-//		goto out;
-//	}
-//#endif
+	else if (_starpu_can_submit_opencl_task())
+	{
+#ifdef STARPU_USE_OPENCL
+		int push_res;
+
+		STARPU_ASSERT_MSG(_starpu_worker_may_perform_blocking_calls(), "pinned OpenCL deallocation must not be done from task or callback");
+
+                free_pinned_cl.where = STARPU_OPENCL;
+		struct starpu_task *task = starpu_task_create();
+              task->name = "opencl_free_pinned";
+		task->callback_func = NULL;
+		task->cl = &free_pinned_cl;
+		task->cl_arg = A;
+		task->synchronous = 1;
+
+		_starpu_exclude_task_from_dag(task);
+
+		push_res = starpu_task_submit(task);
+		STARPU_ASSERT(push_res != -ENODEV);
+		goto out;
+	}
+#endif
 	}
 #endif /* STARPU_SIMGRID */
 
